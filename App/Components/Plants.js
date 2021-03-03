@@ -8,8 +8,18 @@ import * as WebBrowser from 'expo-web-browser';
 
 export default function Plants(props) {
 
+  const renderPlant = ({index, item}) => {
+    return(
+      <View style={styles.container}>
+        <Text style={styles.nameHeader}>{item.common_name}</Text>
+        <Text>Scientific Name: <Text style={{fontWeight: 'bold'}}>{item.scientific_name}</Text></Text>
+        <Text>This plant comes from the <Text style={{fontStyle: 'italic'}}>{item.family}</Text> family and the <Text style={{fontStyle: 'italic'}}>{item.genus}</Text> genus</Text>
+      </View>
+    );
+  }
+
   return (
-    <View >
+    <View style={styles.flatlist}>
       <FlatList
         data={props.plants}
         renderItem={renderPlant}
@@ -22,5 +32,21 @@ export default function Plants(props) {
 }
 
 const styles = StyleSheet.create({
-  // create styles as necessary
+  flatlist: {
+    flex: 1,
+    width: "100%"
+  },
+  container: {
+    height: 80,
+    width: '100%',
+    backgroundColor: 'lightblue',
+    borderWidth: 1,
+    borderColor: 'black',
+    margin: 5,
+  },
+  nameHeader: {
+    fontWeight: 'bold',
+    fontSize: 20
+    
+  }
 });

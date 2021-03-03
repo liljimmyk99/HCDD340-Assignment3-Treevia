@@ -48,6 +48,7 @@ export default function App() {
       {/* Then the search bar */}
       <Search style={styles.searchBar}></Search>
       {/* And some plants */}
+      <Plants style={styles.plantList} plants={plants}></Plants>
 
       {/* You can style and organize these however you want */}
 
@@ -65,21 +66,22 @@ const styles = StyleSheet.create({
     alignItems: 'stretch'
   },
   logoContainer: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 5,
-    borderColor: Colors.eggplant
+
+    borderWidth: 1,
+    borderColor: Colors.bloodOrange
 
   },
   logo: {
     width: Metrics.screenWidth * 0.5,
-    //height: Metrics.screenWidth * 0.25,
-    borderWidth: 1,
-    resizeMode: "contain"
+    height: Metrics.screenWidth * 0.25,
+    resizeMode: 'contain'
   },
   searchBar: {
     flex: 1,
-    width: Metrics.screenWidth
+    width: Metrics.screenWidth,
+  },
+  plantList: {
+    flex: 3,
+    borderWidth: 2
   }
 });

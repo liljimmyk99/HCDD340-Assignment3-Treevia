@@ -16,7 +16,7 @@ export default function Search(props) {
 const styles = StyleSheet.create({
 	container: {
 		width: "100%",
-		borderWidth: 5,
+		borderWidth: 1,
 		borderColor: Colors.bloodOrange
 	}
 });
