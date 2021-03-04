@@ -6,15 +6,22 @@ import { human } from 'react-native-typography'
 import { Metrics, Colors } from '../Themes'
 import * as WebBrowser from 'expo-web-browser';
 
-export default function Plants(props) {
 
+export default function Plants(props) {
+  const [result, setResult] = useState(null);
+
+  const _handlePressButtonAsync = async (link) => {
+    let result = await WebBrowser.openBrowserAsync(link);
+    setResult(result);
+  };
+  
   const renderPlant = ({index, item}) => {
     return(
-      <View style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={() => {_handlePressButtonAsync(item.image_url)}}>
         <Text style={styles.nameHeader}>{item.common_name}</Text>
         <Text>Scientific Name: <Text style={{fontWeight: 'bold'}}>{item.scientific_name}</Text></Text>
         <Text>This plant comes from the <Text style={{fontStyle: 'italic'}}>{item.family}</Text> family and the <Text style={{fontStyle: 'italic'}}>{item.genus}</Text> genus</Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 

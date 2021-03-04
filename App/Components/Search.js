@@ -7,7 +7,7 @@ export default function Search(props) {
 	const [text, setText] = useState("");
 	return (
 		<View>
-			<TextInput placeholder="Type Here...." onChangeText={text => setText(text)} value={text}/>
+			<TextInput placeholder="Type Here...." onChangeText={text => setText(text)} value={text} onSubmitEditing={props.search}/>
 			{/* user input and a search button */}
 		</View>
 	)

@@ -10,6 +10,7 @@ export default function App() {
 
   const [loading, setLoading] = useState(false);
   const [plants, setPlants] = useState([]);
+ 
 
   // retrieve lists of plants
   const loadPlants = async (plantSearch = '', plantFilter = '') => {
@@ -32,13 +33,6 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <Text style={{textAlign: 'center'}}>
-        Have fun!{'\n\n'}
-        Start by creating an API key in "./App/Config/AppConfig.js".{'\n\n'}
-        Take a look at the following components:{'\n'}
-        "./App/Components/Plants.js"{'\n'}
-        "./App/Components/Search.js"
-      </Text> */}
 
       {/* First, the logo */}
       <View style={styles.logoContainer}>
@@ -46,14 +40,13 @@ export default function App() {
       </View>
 
       {/* Then the search bar */}
-      <Search style={styles.searchBar}></Search>
+      <Search style={styles.searchBar} search={loadPlants} ></Search>
       {/* And some plants */}
       <Plants style={styles.plantList} plants={plants}></Plants>
 
       {/* You can style and organize these however you want */}
 
       {/* Also, checkout the "./App/Config/APIRequest.js", if you want custom API calls or use test data*/}
-
     </SafeAreaView>
   );
 }
