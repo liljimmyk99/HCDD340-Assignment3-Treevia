@@ -42,7 +42,7 @@ export default function App() {
       {/* Then the search bar */}
       <Search style={styles.searchBar} search={loadPlants} ></Search>
       {/* And some plants */}
-      <Plants style={styles.plantList} plants={plants}></Plants>
+      <Plants style={styles.plantList} status={loading} plants={plants}></Plants>
 
       {/* You can style and organize these however you want */}
 
@@ -59,9 +59,8 @@ const styles = StyleSheet.create({
     alignItems: 'stretch'
   },
   logoContainer: {
-
-    borderWidth: 1,
-    borderColor: Colors.bloodOrange
+    justifyContent: 'center',
+    alignItems: 'center',
 
   },
   logo: {

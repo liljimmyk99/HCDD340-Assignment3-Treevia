@@ -9,12 +9,12 @@ import * as WebBrowser from 'expo-web-browser';
 
 export default function Plants(props) {
   const [result, setResult] = useState(null);
-
+  let content
   const _handlePressButtonAsync = async (link) => {
     let result = await WebBrowser.openBrowserAsync(link);
     setResult(result);
   };
-  
+
   const renderPlant = ({index, item}) => {
     return(
       <TouchableOpacity style={styles.container} onPress={() => {_handlePressButtonAsync(item.image_url)}}>
@@ -24,8 +24,16 @@ export default function Plants(props) {
       </TouchableOpacity>
     );
   }
-
-  return (
+  //Conditional Rendering
+  if (props.status){
+    console.log("Loading in Prog")
+    content = (
+      <ActivityIndicator 
+      size="large"/>
+    )
+  } else {
+    console.log("Loading in Done")
+    content = (
     <View style={styles.flatlist}>
       <FlatList
         data={props.plants}
@@ -36,6 +44,9 @@ export default function Plants(props) {
       />
     </View>
   )
+  }
+  return content
+  
 }
 
 const styles = StyleSheet.create({

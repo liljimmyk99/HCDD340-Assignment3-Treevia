@@ -11,7 +11,7 @@ export default function Search(props) {
 	}, [text])
 
 	return (
-		<View>
+		<View style={styles.container}>
 			<TextInput placeholder="Type Here...." onChangeText={text => setText(text)} value={text} onSubmitEditing={async () => {props.search(text); console.log("I was clicked")}}/>
 			{/* user input and a search button */}
 		</View>
