@@ -37,6 +37,8 @@ export default function Plants(props) {
     <View style={styles.flatlist}>
       <FlatList
         data={props.plants}
+        refreshing={props.status}
+        onRefresh={async () => {props.refresh(); console.log("I was triggered")}}
         renderItem={renderPlant}
         keyExtractor={(item,index) => {
           return item + index.toString()

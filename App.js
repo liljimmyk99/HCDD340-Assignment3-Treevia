@@ -42,7 +42,7 @@ export default function App() {
       {/* Then the search bar */}
       <Search style={styles.searchBar} search={loadPlants} ></Search>
       {/* And some plants */}
-      <Plants style={styles.plantList} status={loading} plants={plants}></Plants>
+      <Plants style={styles.plantList} status={loading} refresh={loadPlants} plants={plants}></Plants>
 
       {/* You can style and organize these however you want */}
 
